@@ -1,20 +1,45 @@
-class Test1{
-
-};
-
-class Test2{
+class ISplitter{
+    public:
+        virtual void split()=0;
+        virtual ~ISplitter(){}
+    };
     
-};
+    class BinarySplitter : public ISplitter{
+        
+    };
+    
+    class TxtSplitter: public ISplitter{
+        
+    };
+    
+    class PictureSplitter: public ISplitter{
+        
+    };
+    
+    class VideoSplitter: public ISplitter{
+        
+    };
+    
+    
 
-class Application{
+class MainForm : public Form
+{
+	TextBox* txtFilePath;
+	TextBox* txtFileNumber;
+	ProgressBar* progressBar;
+
 public:
-    void run()
-    {
-        //...
-        Test1* pTest1 = new Test1;
-        //...
-        Test2* pTest2 = new Test2;
-        //....
-    }
+	void Button1_Click(){
 
+
+        
+		ISplitter * splitter=
+            new BinarySplitter();//依赖具体类
+        
+        splitter->split();
+
+	}
 };
+
+
+
